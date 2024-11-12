@@ -5,6 +5,7 @@ from tqdm import tqdm
 
 def main():
 
+    #Change linspace limits to get different sections of Mandelbrot set
     # x_img = np.linspace(-2,1.5,500)
     # y_img = np.linspace(-2,2,500)
 
@@ -17,7 +18,7 @@ def main():
 
     img = []
 
-    t = tqdm(total=len(x_img)*len(y_img), desc="Mandelbrot set computation: ")
+    t = tqdm(total=len(x_img)*len(y_img), desc="Mandelbrot set computation")
     for y in y_img:
         img_row = []
         for x in x_img:
@@ -42,10 +43,8 @@ def main():
     plt.imsave("fractal.png",img_arr,cmap="magma", origin="lower")
 
     plt.figure()
-    # plt.imshow(img_arr,cmap="magma")
     plt.pcolormesh(x_img,y_img,img_arr,cmap="magma")
     plt.axis("scaled")
-    # plt.colorbar()
     plt.show()
     return 
 
